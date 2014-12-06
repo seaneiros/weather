@@ -1,0 +1,27 @@
+@import "mixins";
+
+.app {
+  margin: 0;
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+
+  text-decoration: none;
+
+  color: #000;
+  background-color: #fff;
+  @include button-like;
+
+  &.active {
+    background-color: #ffeaae;
+  }
+
+}
+
+.forecast {
+    display: block;
+    overflow: hidden;
+    margin: 25px 0;
+}

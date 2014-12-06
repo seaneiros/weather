@@ -1,0 +1,30 @@
+@import "variables";
+
+.nav-tabs {
+
+  display: flex;
+  justify-content: center;
+
+  & > .btn-group {
+
+    display: flex;
+    overflow: hidden;
+
+    & > .btn {
+      display: block;
+      border-radius: 0;
+
+      &:first-of-type {
+        border-bottom-left-radius: $border-button-radius;
+        border-top-left-radius: $border-button-radius;
+      }
+
+      &:last-of-type {
+        border-bottom-right-radius: $border-button-radius;
+        border-top-right-radius: $border-button-radius;
+      }
+
+    }
+
+  }
+}

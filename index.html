@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weather">
+<head>
+	<meta charset="UTF-8">
+	<title>Touch weather</title>
+	<link rel="stylesheet" href="./assets/css/style.css"/>
+	<script src="./assets/js/angular.core.js" rel="script"></script>
+</head>
+<body>
+
+<div class="app">
+
+	<!-- Header -->
+	<div class="app-header">
+		<img class="app-logo" src="./assets/img/header__logo.png" alt="Яндекс"/>
+		<div class="app-label">
+			<div class="caption">Погода</div>
+		</div>
+	</div>
+
+	<div class="app-search">
+		<div>
+			<input type="text"/>
+		</div>
+		<div><div class="btn">Найти</div></div>
+	</div>
+
+	<div class="app-body">
+
+		<!-- Suggest -->
+		<div class="app-suggest"></div>
+
+		<!-- Content -->
+		<div>
+
+			<div class="nav-tabs">
+				<div class="btn-group">
+					<a class="btn btn-default"
+						 href="#/brief"
+						 toggle="on"
+						 active-class="active">Кратко
+					</a>
+
+					<a class="btn btn-default"
+						 href="#/detailed"
+						 toggle="on"
+						 active-class="active">Подробно
+					</a>
+
+					<a class="btn btn-default"
+						 href="#/visual"
+						 toggle="on"
+						 active-class="active">Наглядно
+					</a>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="tab-content">
+			<ng-view ></ng-view>
+		</div>
+
+	</div>
+
+</div>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>

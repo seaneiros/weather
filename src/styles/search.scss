@@ -1,0 +1,24 @@
+@import "mixins";
+
+.app-search {
+
+  display: table;
+  top: $app-header-height;
+  width: 100%;
+  height: $app-search-height;
+  padding: 1vw 3vw;
+  border-top: $border-button;
+  box-sizing: border-box;
+
+  & > div {
+    display: table-cell;
+    width: 100%;
+
+    & > input {
+      width:100%;
+      @include button-like;
+    }
+
+  }
+
+}

@@ -1,0 +1,8 @@
+@import "variables";
+
+@mixin button-like {
+  font-size: 4vw;
+  padding: 2vw 4vw;
+  border: $border-button;
+  border-radius: $border-button-radius;
+}
