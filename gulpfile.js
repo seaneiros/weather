@@ -25,7 +25,7 @@ gulp.task('scripts', function () {
 		.pipe(uglify())
 		.pipe(gulp.dest('assets/js'));
 
-	gulp.src('src/js/*.js', {read: true})
+	gulp.src(['src/js/modules/*.js','src/js/*.js'], {read: true})
 		.on('error', console.log)
 		.pipe(concat('app.js'))
 		.pipe(uglify())

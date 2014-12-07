@@ -1,65 +1,92 @@
-.forecast_short {
+@import "variables";
 
-    position: relative;
-    display: block;
-    float: left;
-    margin-top: 25px;
+.forecast-short-day {
 
-    &__day {
+  width: 100%;
+  margin-bottom: 6vw;
+
+  & > .day-title {
+    font-size: $forecast-main-font-size;
+    padding-left: 2vw;
+
+    &.weekend {
+      color: red;
+    }
+  }
+
+  & table {
+    border: none;
+    border-spacing: 0;
+    text-align: left;
+  }
+
+  & > table {
+
+    & .time-of-day {
+      width: 30%;
+      color: rgba(0,0,0,.7);
+      font-size: $forecast-aux-font-size;
+      padding-left: 2vw;
+    }
+
+    & .weather-icon {
+      width: 10%;
+
+      & > img {
+        display: block;
+        margin: 0 auto;
+      }
+
+    }
+
+    & .temp {
+      width: 10%;
+      font-size: $forecast-aux-font-size;
+      font-weight: bold;
+    }
+
+    & .empty {
+      width: 40%;
+    }
+
+  }
+
+  & > .today-details {
+
+    & > table {
+
+      & .temp {
+        width: 50%;
+        text-align: center;
+        font-size: $forecast-large-font-size;
+      }
+
+      & .stats {
+        color: rgba(0,0,0,.7);
+        font-size: $forecast-small-font-size;
+      }
+
+      & .weather-icon {
+        display: block;
         float: left;
-        width: 106px;
+        width: 20%;
 
-        &-weekstart:not(:first-of-type) {
-            margin-left: 20px;
+        & > img {
+          display: block;
+          width: 60%;
+          margin: 0 auto;
         }
+
+      }
+
+      & .weather-details {
+        display: block;
+        width: 80%;
+        font-size: $forecast-aux-font-size;
+        vertical-align: middle;
+      }
     }
 
-    &__weekday {
-        font-size: 22px;
+  }
 
-        &-weekend {
-            color: red;
-        }
-    }
-
-    &__date {
-        font-size: 13px;
-
-        &-weekend {
-            color: red;
-        }
-    }
-
-    &__weather {
-        &-box {
-            height: 112px;
-            background-color: #fae5aa;
-        }
-
-        &-icon {
-            width: 27px;
-            height: 27px;
-            margin: 10px 12px 0 12px;
-        }
-
-        &-text {
-            height: 32px;
-            margin: 7px 10px 0 10px;
-            font-size: 10px;
-        }
-
-        &-temp {
-            margin: 10px 10px 0 10px;
-            font-size: 16px;
-        }
-
-        &-temp-night {
-            height: 29px;
-            padding: 0 10px;
-            line-height: 29px;
-            font-size: 13px;
-            color: #6d6e6e;
-            background-color: #f7f3d3;
-        }
-    }
 }
