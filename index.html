@@ -11,19 +11,9 @@
 <div class="app">
 
 	<!-- Header -->
-	<div class="app-header">
-		<img class="app-logo" src="./assets/img/header__logo.png" alt="Яндекс"/>
-		<div class="app-label">
-			<div class="caption">Погода</div>
-		</div>
-	</div>
+	<ng-include src ="'./templates/header.html'" class="app-header"></ng-include>
 
-	<div class="app-search">
-		<div>
-			<input type="text"/>
-		</div>
-		<div><div class="btn">Найти</div></div>
-	</div>
+	<ng-include src ="'./templates/search.html'" class="app-search"></ng-include>
 
 	<div class="app-body">
 
@@ -31,7 +21,7 @@
 		<div class="app-suggest"></div>
 
 		<!-- Content -->
-		<div class="nav-tabs"></div>
+		<ng-include src ="'./templates/navTabs.html'" class="nav-tabs"></ng-include>
 
 		<div class="tab-content">
 			<ng-view></ng-view>
