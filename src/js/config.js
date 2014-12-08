@@ -1,7 +1,11 @@
-angular.module('weather').
-	config(['$routeProvider',
+angular.module('weather')
+	.config(['$routeProvider', 'applicationStateProvider',
 		function($routeProvider) {
 			$routeProvider
+				.when('/loc/:location', {
+					template: '',
+					controller: 'LocationController'
+				})
 				.when('/brief', {
 					templateUrl: './templates/brief.html',
 					controller: 'BriefForecastCtrl'})
