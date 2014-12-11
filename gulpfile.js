@@ -19,6 +19,8 @@ gulp.task('sass', function() {
 gulp.task('scripts', function () {
 	gulp.src(['src/js/core/angular.min.js',
 						'src/js/core/angular-route.min.js',
+						'src/js/core/datef.js',
+						'src/js/core/ru.js',
 						'src/js/core/mobile-angular-ui.min.js'], {read: true})
 		.on('error', console.log)
 		.pipe(concat('angular.core.js'))

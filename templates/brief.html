@@ -1,19 +1,22 @@
-<div class="forecast-short-day">
-	<div class="day-title">{{appState.loc()}}Сегодня, 7 ноября</div>
-	<div class="today-details">
+<div class="forecast-short-day" ng-repeat="day in appState.Forecast.days">
+	<div class="day-title">
+		<span ng-if="day.isWeekend" class="weekend">{{day.label}}</span>
+		<span ng-if="!day.isWeekend">{{day.label}}</span>
+	</div>
+	<div class="today-details" ng-show="{{day.isToday}}" style="{{appState.Now.style}}">
 		<table>
 			<tr>
-				<td class="temp">+31&deg;C</td>
+				<td class="temp">{{appState.Now.temp}}&deg;C</td>
 				<td>
 					<table class="stats">
 						<tr>
-							<td>Ветер: 5,0м/с</td>
+							<td>Ветер: {{appState.Now.wind.speed.toFixed(1)}}м/с</td>
 						</tr>
 						<tr>
-							<td>Влажность: 38%</td>
+							<td>Влажность: {{appState.Now.humidity}}%</td>
 						</tr>
 						<tr>
-							<td>Давление: 747 мм рт. ст.</td>
+							<td>Давление: {{appState.Now.pressure}} мм рт. ст.</td>
 						</tr>
 					</table>
 				</td>
@@ -21,265 +24,50 @@
 			<tr>
 				<td colspan="2">
 					<div class="weather-icon">
-						<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
+						<img ng-src="http://ekb.shri14.ru/icons/{{appState.Now.weather.icon}}.svg" />
 					</div>
 					<div class="weather-details">
-						Переменная облачность, небольшой дождь
+						{{appState.Now.weather.description}}
 					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 	<table>
-		<tr>
+		<tr style="{{day.parts.morning.style}}">
 			<td class="time-of-day">Утром</td>
 			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
+				<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.morning.weather.icon}}.svg" />
 			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
+			<td class="temp">{{day.parts.morning.temp.min}}</td>
+			<td class="temp">{{day.parts.morning.temp.max}}</td>
 			<td class="empty"></td>
 		</tr>
-		<tr>
+		<tr style="{{day.parts.day.style}}">
 			<td class="time-of-day">Днем</td>
 			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
+				<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.day.weather.icon}}.svg" />
 			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
+			<td class="temp">{{day.parts.day.temp.min}}</td>
+			<td class="temp">{{day.parts.day.temp.max}}</td>
 			<td class="empty"></td>
 		</tr>
-		<tr>
+		<tr style="{{day.parts.evening.style}}">
 			<td class="time-of-day">Вечером</td>
 			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
+				<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.evening.weather.icon}}.svg" />
 			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
+			<td class="temp">{{day.parts.evening.temp.min}}</td>
+			<td class="temp">{{day.parts.evening.temp.max}}</td>
 			<td class="empty"></td>
 		</tr>
-		<tr>
+		<tr style="{{day.parts.night.style}}">
 			<td class="time-of-day">Ночью</td>
 			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
+				<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.night.weather.icon}}.svg" />
 			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
-			<td class="empty"></td>
-		</tr>
-	</table>
-</div>
-
-<div class="forecast-short-day">
-	<div class="day-title">Сегодня, 7 ноября</div>
-	<div class="today-details"></div>
-	<table>
-		<tr>
-			<td class="time-of-day">Утром</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Днем</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Вечером</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Ночью</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
-			<td class="empty"></td>
-		</tr>
-	</table>
-</div>
-
-<div class="forecast-short-day">
-	<div class="day-title">Сегодня, 7 ноября</div>
-	<div class="today-details"></div>
-	<table>
-		<tr>
-			<td class="time-of-day">Утром</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Днем</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Вечером</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Ночью</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
-			<td class="empty"></td>
-		</tr>
-	</table>
-</div>
-
-<div class="forecast-short-day">
-	<div class="day-title">Сегодня, 7 ноября</div>
-	<div class="today-details"></div>
-	<table>
-		<tr>
-			<td class="time-of-day">Утром</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Днем</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Вечером</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Ночью</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
-			<td class="empty"></td>
-		</tr>
-	</table>
-</div>
-
-<div class="forecast-short-day">
-	<div class="day-title">Сегодня, 7 ноября</div>
-	<div class="today-details"></div>
-	<table>
-		<tr>
-			<td class="time-of-day">Утром</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Днем</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Вечером</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Ночью</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
-			<td class="empty"></td>
-		</tr>
-	</table>
-</div>
-
-<div class="forecast-short-day">
-	<div class="day-title">Сегодня, 7 ноября</div>
-	<div class="today-details"></div>
-	<table>
-		<tr>
-			<td class="time-of-day">Утром</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-5</td>
-			<td class="temp">0</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Днем</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">+23</td>
-			<td class="temp">+26</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Вечером</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">-25</td>
-			<td class="temp">+31</td>
-			<td class="empty"></td>
-		</tr>
-		<tr>
-			<td class="time-of-day">Ночью</td>
-			<td class="weather-icon">
-				<img src="http://ekb.shri14.ru/icons/bkn_d.svg" />
-			</td>
-			<td class="temp">0</td>
-			<td class="temp">+10</td>
+			<td class="temp">{{day.parts.night.temp.min}}</td>
+			<td class="temp">{{day.parts.night.temp.max}}</td>
 			<td class="empty"></td>
 		</tr>
 	</table>
