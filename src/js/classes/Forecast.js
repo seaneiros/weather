@@ -19,6 +19,8 @@ function Forecast() {
 		tomorrowDate.setMinutes(0);
 		tomorrowDate.setSeconds(0);
 
+		this.days = [];
+
 		for (var i = data.length;i--;) {
 			iDate = new Date(data[i].date);
 			iDate.setHours(0);
