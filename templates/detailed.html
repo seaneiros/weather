@@ -1,3 +1,165 @@
-<div class="tab-pane">
-	<p>Detailed forecast {{appState.loc()}}</p>
+<div class="forecast-detailed-day" ng-repeat="day in appState.Forecast.days">
+	<div class="day-title">
+		<span ng-if="day.isWeekend" class="weekend">{{day.label}}</span>
+		<span ng-if="!day.isWeekend">{{day.label}}</span>
+	</div>
+	<div class="today-details" ng-show="{{day.isToday}}" style="{{appState.Now.style}}">
+		<table>
+			<tr>
+				<td colspan="2" class="temp">{{appState.Now.temp}}&deg;C</td>
+			</tr>
+			<tr>
+				<td rowspan="2" valign="top" width="30%">
+					<div class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{appState.Now.weather.icon}}.svg" />
+					</div>
+				</td>
+				<td>
+					<div class="weather-details">
+						{{appState.Now.weather.description}}
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table class="stats">
+						<tr>
+							<td>Ветер: {{appState.Now.wind.description}}, {{appState.Now.wind.speed.toFixed(1)}} м/с</td>
+						</tr>
+						<tr>
+							<td>Влажность: {{appState.Now.humidity}}%</td>
+						</tr>
+						<tr>
+							<td>Давление: {{appState.Now.pressure}} мм рт. ст.</td>
+						</tr>
+						<tr>
+							<td>Восход: {{day.sunrise}} Закат: {{day.sunset}}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<table>
+		<tr>
+			<table  style="{{day.parts.morning.style}}">
+				<tr>
+					<td class="time-of-day" rowspan="3" valign="top">Утром</td>
+					<td class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.morning.weather.icon}}.svg" />
+					</td>
+					<td class="temp">{{day.parts.morning.temp.min}}</td>
+					<td class="temp">{{day.parts.morning.temp.max}}</td>
+					<td></td>
+				</tr>
+				<tr><td  class="weather-details" colspan="4">{{day.parts.morning.weather.description}}</td></tr>
+				<tr>
+					<td colspan="4">
+						<table class="stats">
+							<tr>
+								<td>Ветер: {{day.parts.morning.wind.description}}, {{day.parts.morning.wind.speed.toFixed(1)}} м/с</td>
+							</tr>
+							<tr>
+								<td>Влажность: {{day.parts.morning.humidity}}%</td>
+							</tr>
+							<tr>
+								<td>Давление: {{day.parts.morning.pressure}} мм рт. ст.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+
+		<tr>
+			<table  style="{{day.parts.day.style}}">
+				<tr>
+					<td class="time-of-day" rowspan="3" valign="top">Днем</td>
+					<td class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.day.weather.icon}}.svg" />
+					</td>
+					<td class="temp">{{day.parts.day.temp.min}}</td>
+					<td class="temp">{{day.parts.day.temp.max}}</td>
+					<td></td>
+				</tr>
+				<tr><td  class="weather-details" colspan="4">{{day.parts.day.weather.description}}</td></tr>
+				<tr>
+					<td colspan="4">
+						<table class="stats">
+							<tr>
+								<td>Ветер: {{day.parts.day.wind.description}}, {{day.parts.day.wind.speed.toFixed(1)}} м/с</td>
+							</tr>
+							<tr>
+								<td>Влажность: {{day.parts.day.humidity}}%</td>
+							</tr>
+							<tr>
+								<td>Давление: {{day.parts.day.pressure}} мм рт. ст.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+
+		<tr>
+			<table  style="{{day.parts.evening.style}}">
+				<tr>
+					<td class="time-of-day" rowspan="3" valign="top">Вечером</td>
+					<td class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.evening.weather.icon}}.svg" />
+					</td>
+					<td class="temp">{{day.parts.evening.temp.min}}</td>
+					<td class="temp">{{day.parts.evening.temp.max}}</td>
+					<td></td>
+				</tr>
+				<tr><td  class="weather-details" colspan="4">{{day.parts.evening.weather.description}}</td></tr>
+				<tr>
+					<td colspan="4">
+						<table class="stats">
+							<tr>
+								<td>Ветер: {{day.parts.evening.wind.description}}, {{day.parts.evening.wind.speed.toFixed(1)}} м/с</td>
+							</tr>
+							<tr>
+								<td>Влажность: {{day.parts.evening.humidity}}%</td>
+							</tr>
+							<tr>
+								<td>Давление: {{day.parts.evening.pressure}} мм рт. ст.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+
+		<tr>
+			<table  style="{{day.parts.night.style}}">
+				<tr>
+					<td class="time-of-day" rowspan="3" valign="top">Ночью</td>
+					<td class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{day.parts.night.weather.icon}}.svg" />
+					</td>
+					<td class="temp">{{day.parts.night.temp.min}}</td>
+					<td class="temp">{{day.parts.night.temp.max}}</td>
+					<td></td>
+				</tr>
+				<tr><td  class="weather-details" colspan="4">{{day.parts.night.weather.description}}</td></tr>
+				<tr>
+					<td colspan="4">
+						<table class="stats">
+							<tr>
+								<td>Ветер: {{day.parts.night.wind.description}}, {{day.parts.night.wind.speed.toFixed(1)}} м/с</td>
+							</tr>
+							<tr>
+								<td>Влажность: {{day.parts.night.humidity}}%</td>
+							</tr>
+							<tr>
+								<td>Давление: {{day.parts.night.pressure}} мм рт. ст.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+
+	</table>
 </div>
