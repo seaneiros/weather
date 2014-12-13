@@ -44,6 +44,7 @@ function Forecast() {
 
 			this.days.push({
 				label : [dayName,', ',datef('d MMMM', iDate)].join(''),
+				labelShort : datef('D', iDate),
 				date : iDate,
 				sunrise : data[i].sunrise,
 				sunset : data[i].sunset,

@@ -1,3 +1,35 @@
-<div class="tab-pane">
-	<p>visual forecast {{appState.loc()}}</p>
+<div class="forecast-visual">
+
+	<div class="today-details">
+		<table>
+			<tr>
+				<td colspan="2" class="temp">{{appState.Now.temp}}&deg;C</td>
+			</tr>
+			<tr>
+				<td valign="middle" width="30%">
+					<div class="weather-icon">
+						<img ng-src="http://ekb.shri14.ru/icons/{{appState.Now.weather.icon}}.svg" />
+					</div>
+				</td>
+				<td valign="middle">
+					<div class="weather-details">
+						{{appState.Now.weather.description}}
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="gist">
+
+		<div class="column" style="height:{{col.height}};{{col.parts.day_short.style}}" ng-repeat="col in gistData">
+			<div class="weather-icon">
+				<img ng-src="http://ekb.shri14.ru/icons/{{col.parts.day_short.weather.icon}}.svg" />
+			</div>
+			<div class="day-title">{{col.labelShort}}</div>
+			<div class="temp" style="border-bottom-color:{{col.delimiterColor}};">{{col.parts.day_short.temp.avg}}</div>
+		</div>
+
+	</div>
+
 </div>
