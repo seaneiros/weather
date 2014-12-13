@@ -4,7 +4,6 @@
   "devDependencies": {
     "datef": "0.0.5",
     "gulp": "~3.8.10",
-    "gulp-browserify": "~0.5.0",
     "gulp-concat": "^2.4.2",
     "gulp-minify-css": "~0.3.11",
     "gulp-rename": "~1.2.0",
