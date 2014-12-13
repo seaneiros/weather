@@ -1,4 +1,7 @@
 <div>
-	<input type="text"/>
+	<input type="text" list="cities" ng-model="city" ng-change="makeSuggest(city)"/>
 </div>
-<div><div class="btn">Найти</div></div>
+<div><div class="btn" ng-click="findLocation(city)">Найти</div></div>
+<datalist id="cities">
+	<option value="{{elm.name.toLowerCase()}}" ng-repeat="elm in list">{{elm.name}}, {{elm.country}}</option>
+</datalist>

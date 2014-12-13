@@ -12,6 +12,6 @@ angular.module('weather')
 					.error(function(data, status,headers,config) {
 					});
 			}, function() {
-				console.log('error on geo');
+				$location.path(['/loc/', $scope.appState.loc()].join(''));
 			});
 		}]);

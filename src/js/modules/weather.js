@@ -1,1 +1,1 @@
-angular.module('weather', ['ngRoute','mobile-angular-ui']);
+angular.module('weather', ['ngRoute']);

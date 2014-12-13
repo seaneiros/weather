@@ -1,7 +1,16 @@
 function ApplicationState() {
 	var location = 213,
 			relocated = false,
-			lastUpdate = new Date();
+			lastUpdate = new Date(),
+			activeTab;
+
+	this.changeTab = function(value) {
+		activeTab = value;
+	}
+
+	this.checkActiveTab = function(value) {
+		return activeTab == value;
+	}
 
 	this.expired = function() {
 		var now = new Date();

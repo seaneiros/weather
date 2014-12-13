@@ -4,6 +4,7 @@ angular.module('weather')
 		var colorSelector = new ColorSelector();
 		var temps = [];
 		const MIN_COLUMN_HEIGHT = 14;
+		$scope.appState.changeTab('visual');
 		$scope.gistData = $scope.appState.Forecast.days.slice(0,8);
 		utils.forEach($scope.gistData, function(key, element) {
 			temps.push(element.parts.day_short.temp.avg);

@@ -1,20 +1,17 @@
 <div class="btn-group">
 	<a class="btn btn-default"
 		 href="#/brief"
-		 toggle="on"
-		 active-class="active">Кратко
+		 ng-class="{active: appState.checkActiveTab('brief')}">Кратко
 	</a>
 
 	<a class="btn btn-default"
 		 href="#/detailed"
-		 toggle="on"
-		 active-class="active">Подробно
+		 ng-class="{active: appState.checkActiveTab('detailed')}">Подробно
 	</a>
 
 	<a class="btn btn-default"
 		 href="#/visual"
-		 toggle="on"
-		 active-class="active">Наглядно
+		 ng-class="{active: appState.checkActiveTab('visual')}">Наглядно
 	</a>
 
 </div>
