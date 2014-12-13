@@ -1,6 +1,7 @@
 function ApplicationState() {
 	var location = 213,
-			relocated = false,
+			relocated = true,
+			firstLoad = true,
 			lastUpdate = new Date(),
 			activeTab;
 
@@ -23,7 +24,8 @@ function ApplicationState() {
 		if (value === null || value === undefined) return location;
 		var valAsInt = parseInt(value);
 		valAsInt = isNaN(valAsInt) ? location : valAsInt;
-		relocated = valAsInt !== location;
+		relocated = firstLoad || valAsInt !== location;
+		firstLoad = false;
 		location = valAsInt;
 		return this;
 	};
