@@ -26,7 +26,7 @@
 			<div class="weather-icon">
 				<img ng-src="http://ekb.shri14.ru/icons/{{col.parts.day_short.weather.icon}}.svg" />
 			</div>
-			<div class="day-title">{{col.labelShort}}</div>
+			<div class="day-title" ng-class="{weekend : col.isWeekend}">{{col.labelShort}}</div>
 			<div class="temp" style="border-bottom-color:{{col.delimiterColor}};">{{col.parts.day_short.temp.avg}}</div>
 		</div>
 

@@ -7,9 +7,16 @@ angular.module('weather')
 			$scope.city = '';
 
 			$scope.makeSuggest = function(text) {
+				var clone;
 				$http.get('http://ekb.shri14.ru/api/suggest?query=' + text)
 					.success(function(data, status,headers,config) {
-						$scope.list = data;
+						utils.forEach(data, function(key, element) {
+							clone = utils.clone(element);
+							clone.searchName = clone.name.toLowerCase();
+							element.searchName = element.name;
+							$scope.list.push(clone);
+							$scope.list.push(element);
+						});
 					})
 					.error(function(data, status,headers,config) {
 					});
@@ -18,7 +25,8 @@ angular.module('weather')
 			$scope.findLocation = function(text) {
 				utils.forEach($scope.list, function(key, element) {
 					if (text.toLowerCase() === element.name.toLowerCase()) {
-						$location.path(['/loc/',element.geoid].join(''));
+						$scope.appState.cityName = element.name;
+						$location.path(['/loc/', element.geoid].join(''));
 					}
 				});
 			}

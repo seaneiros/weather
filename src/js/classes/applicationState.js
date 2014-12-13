@@ -4,6 +4,8 @@ function ApplicationState() {
 			lastUpdate = new Date(),
 			activeTab;
 
+	this.cityName = 'Москва';
+
 	this.changeTab = function(value) {
 		activeTab = value;
 	}

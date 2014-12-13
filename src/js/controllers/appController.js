@@ -7,6 +7,7 @@ angular.module('weather')
 				coords = result.coords;
 				$http.get('http://ekb.shri14.ru/api/geocode?coords='+[coords.longitude,coords.latitude].join(',') )
 					.success(function(data, status,headers,config) {
+						$scope.appState.cityName = data.name;
 						$location.path(['/loc/',data.geoid].join(''));
 					})
 					.error(function(data, status,headers,config) {

@@ -8,10 +8,6 @@
   & > .day-title {
     font-size: $forecast-main-font-size;
     padding-left: 2vw;
-
-    &.weekend {
-      color: red;
-    }
   }
 
   & table {

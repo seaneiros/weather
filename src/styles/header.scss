@@ -69,6 +69,17 @@
     }
   }
 
+  & > .city-name {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(190,190,190, .6);
+    font-size: 4vw;
+  }
+
 }
 
 .header_search__input
