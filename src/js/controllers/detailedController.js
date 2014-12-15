@@ -1,4 +1,5 @@
 angular.module('weather')
-	.controller('DetailedForecastCtrl',['$scope', function($scope, $routeParams) {
+	.controller('DetailedForecastCtrl',['$scope', 'dataFetcher', function($scope, dataFetcher) {
 		$scope.appState.changeTab('detailed');
+		dataFetcher.fetchData();
 	}]);

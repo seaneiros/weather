@@ -1,11 +1,12 @@
 angular.module('weather')
-	.controller('VisualForecastCtrl',['$scope', function($scope, $routeParams) {
+	.controller('VisualForecastCtrl',['$scope', 'dataFetcher', function($scope, dataFetcher) {
 		var utils = new Utils();
 		var colorSelector = new ColorSelector();
 		var temps = [];
 		const MIN_COLUMN_HEIGHT = 14;
 		const DEFAULT_COLUMN_MAX = 20;
 		$scope.appState.changeTab('visual');
+		dataFetcher.fetchData();
 		$scope.gistData = $scope.appState.Forecast.days.slice(0,8);
 		utils.forEach($scope.gistData, function(key, element) {
 			temps.push(element.parts.day_short.temp.avg);
