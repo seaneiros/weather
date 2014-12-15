@@ -9,14 +9,16 @@ angular.module('weather')
 				//TODO: почему-то не работает ng-show с $scope.appState.expired(), поэтому....грязный хак
 				var overlay = document.getElementById("overlay");
 				overlay.style.display = 'block';
-				_http.get('http://ekb.shri14.ru/api/localities/' + _applicationState.loc())
-					.success(function(data, status, headers, config) {
-						_applicationState.reload(data);
+				var promise = _http.get('http://ekb.shri14.ru/api/localities/' + _applicationState.loc())
+					.then(function(response) {
+						_applicationState.reload(response.data);
 						overlay.style.display = 'none';
-					})
-					.error(function(data, status, headers, config) {
+					}, function() {
 						overlay.style.display = 'none';
 					});
+				return promise;
+			} else {
+				return _http.get('');
 			}
 		};
 

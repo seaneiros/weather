@@ -16,6 +16,6 @@ angular.module('weather')
 					templateUrl: './templates/visual.html',
 					controller: 'VisualForecastCtrl'})
 				.otherwise({
-					redirectTo: '/'
+					redirectTo: '/brief'
 				});
 		}]);

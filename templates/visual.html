@@ -22,7 +22,7 @@
 
 	<div class="gist">
 
-		<div class="column" style="height:{{col.height}};{{col.parts.day_short.style}}" ng-repeat="col in gistData">
+		<div class="column" style="height:{{col.height}};{{col.parts.day_short.style}}" ng-repeat="col in appState.gist">
 			<div class="weather-icon">
 				<img ng-src="http://ekb.shri14.ru/icons/{{col.parts.day_short.weather.icon}}.svg" />
 			</div>
